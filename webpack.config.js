@@ -12,12 +12,12 @@ module.exports = {
   },
   resolve: {
     // ビルド対象に含めたい（requireしている）ファイルの拡張子を指定
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', 'tsx', '.js']
   },
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
       }
