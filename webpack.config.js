@@ -4,10 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    'app': path.resolve(__dirname, 'src/my-app'),
+    'public/index': path.resolve(__dirname, 'src/index.ts'),
+    'test/index': path.resolve(__dirname, 'test/index.ts'),
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: __dirname,
     filename: '[name].bundle.js',
   },
   resolve: {
@@ -27,7 +28,7 @@ module.exports = {
   devtool: 'inline-source-map',
   // 開発サーバーの設定
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
+    contentBase: __dirname,
     hot: true,
     port: 5000,
   },
@@ -36,7 +37,10 @@ module.exports = {
     // webpackでバンドルされたファイル(app.bundle.js)のscriptタグを
     // 指定したhtmlに自動で埋め込んでくれるプラグイン
     new HtmlWebpackPlugin({
-      template: './index.html',
+      filename: 'public/index.html',
+      template: 'src/index.html',
+      inject: false,
+      bundle: 'index.bundle.js',
     }),
     // コード変更があるとブラウザ内のコンテンツが自動的に更新するプラグイン
     // ※ 更新時にページの全読み込みは発生せず、フォーム入力等のステートが

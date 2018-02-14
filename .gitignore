@@ -1,3 +1,9 @@
-public/
 node_modules/
 *.log
+
+public/
+
+/test/**/*.js
+/test/**/*.js.map
+/test/**/*.d.ts
+!test/types/**/*

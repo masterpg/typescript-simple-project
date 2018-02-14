@@ -20,7 +20,18 @@ $ yarn install
 開発サーバーを起動します。
 
 ```console
-$ ./node_modules/.bin/webpack-dev-server
+$ yarn serve
 ```
 
-起動したらブラウザで http://localhost:5000/ にアクセスすることで画面が表示されます。
+起動したらブラウザで下記URLにアクセスすることで各画面を確認できます。
+
+* アプリケーション画面: http://localhost:5000/public/
+* 単体テスト実行画面: http://localhost:5000/test/
+
+## 単体テスト
+
+上記で示したようにブラウザでも単体テストの実行を行うことができますが、コンソールでも単体テストを実行することができます。
+
+```console
+$ yarn test
+```
