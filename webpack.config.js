@@ -12,16 +12,29 @@ module.exports = {
     filename: '[name].bundle.js',
   },
   resolve: {
-    // ビルド対象に含めたい（requireしている）ファイルの拡張子を指定
+    // ビルド対象に含めたいファイルの拡張子を指定
     extensions: ['.ts', 'tsx', '.js']
   },
   module: {
     rules: [
+      // {
+      //   test: /\.tsx?$/,
+      //   enforce: 'pre',
+      //   loader: 'tslint-loader',
+      // },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      }
+        use: [{
+          loader: 'ts-loader',
+          options: {
+            compilerOptions: {
+              sourceMap: true,
+            },
+          },
+        }],
+        // ローダーの処理対象から外すディレクトリ
+        exclude: [/node_modules/],
+      },
     ]
   },
   // ソースマップの設定
