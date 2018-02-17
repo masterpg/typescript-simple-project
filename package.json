@@ -3,7 +3,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node_modules/.bin/tslint -p tslint.json && ./node_modules/.bin/webpack",
-    "test": "npm run build && ./node_modules/.bin/mocha-chrome test/index.html",
+    "test": "./node_modules/.bin/webpack && ./node_modules/.bin/mocha-chrome test/index.html",
     "serve": "./node_modules/.bin/webpack-dev-server"
   },
   "dependencies": {},

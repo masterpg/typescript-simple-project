@@ -17,11 +17,11 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.tsx?$/,
-      //   enforce: 'pre',
-      //   loader: 'tslint-loader',
-      // },
+      {
+        test: /\.tsx?$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+      },
       {
         test: /\.tsx?$/,
         use: [{
